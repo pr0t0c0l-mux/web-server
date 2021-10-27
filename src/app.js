@@ -4,10 +4,7 @@ const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
-
-
 const app = express()
-
 
 //define paths for express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -19,20 +16,21 @@ app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
+
 //setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather',
-        name: 'Troy Cabayao'
+        title: 'Weather App',
+        name: 'Troy Cabayao & Earl Christian Lizada'
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About',
-        name: 'Troy Cabayao'
+        name: 'Troy Cabayao & Earl Christian Lizada'
     })
     
 })
@@ -41,7 +39,7 @@ app.get('/help', (req, res) => {
     res.render('help', {
         message: 'An error occured please try again!',
         title: 'Help',
-        name: 'Troy Cabayao'
+        name: 'Troy Cabayao & Earl Christian Lizada'
     })
 })
 
@@ -88,7 +86,7 @@ app.get('/products', (req, res) => {
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
-        name: 'Troy Cabayao',
+        name: 'Troy Cabayao & Earl Christian Lizada',
         errorMessage: 'Help article not found!'
     })
 })
@@ -96,11 +94,10 @@ app.get('/help/*', (req, res) => {
 app.get('*', (req, res) => {
    res.render('404', {
        title: '404',
-       name: 'Troy Cabayao',
+       name: 'Troy Cabayao & Earl Christian Lizada',
        errorMessage: 'Page not Found!'
    })
 })
-
 
 app.listen(3000, () => {
     console.log('Server is up on port 3000.')
