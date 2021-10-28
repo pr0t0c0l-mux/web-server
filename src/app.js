@@ -32,7 +32,7 @@ app.get('/about', (req, res) => {
         title: 'About',
         name: 'Troy Cabayao & Earl Christian Lizada'
     })
-    
+
 })
 
 app.get('/help', (req, res) => {
