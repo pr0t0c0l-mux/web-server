@@ -45,7 +45,7 @@ app.get('/help', (req, res) => {
     })
 })
 
-const date = moment().format('dddd MMM D,')
+const date = moment().format('dddd, MMM D')
 
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
