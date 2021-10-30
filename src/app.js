@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
+const moment = require('moment')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
@@ -44,6 +45,8 @@ app.get('/help', (req, res) => {
     })
 })
 
+const date = moment().format('dddd MMM D,')
+
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
             return res.send({
@@ -61,6 +64,7 @@ app.get('/weather', (req, res) => {
                 return res.send({error})
             }
             res.send({
+                date,
                 forecast: forecastData,
                 location,
                 address: req.query.address
